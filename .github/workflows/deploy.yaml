@@ -25,4 +25,4 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         protocol: ftp
         local-dir: './build/'
-        server-dir: './public_html/projects/montesienna/alt/'
+        server-dir: './public_html/montesienna/'
