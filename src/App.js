@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {Switch, Route, HashRouter} from 'react-router-dom'
+import PrivateRoute from './components/PrivateRouteComponent'
+import Alert from './components/AlertComponent'
+
+import Auth from './pages/Auth'
+import Home from './pages/Home'
+import PageNotFound from './pages/404'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <HashRouter>
+        <Alert/>
+        <Switch>
+          <PrivateRoute exact path={'/'} component={Home}/>
+          <Route path={'/auth'} component={Auth}/>
+          <Route path='*' component={PageNotFound}/>
+        </Switch>
+      </HashRouter>
   );
 }
 
