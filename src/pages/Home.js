@@ -10,7 +10,7 @@ export default function Home(){
 
     useEffect(() => {
         setLoading(true)
-        window.axios.get('/api/admin/student')
+        window.axios.get('/api/master/student')
             .then(res => {
                 setLoading(false)
                 const {data}    = res.data
